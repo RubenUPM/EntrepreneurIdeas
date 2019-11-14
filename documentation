@@ -1,0 +1,17 @@
+# SERVER
+
+# Run Server
+python manage.py runserver
+
+# DATABASE
+
+python manage.py migrate
+
+# Need to run this when you change the APP/models.py:
+python manage.py makemigrations
+python manage.py migrate
+
+# SUPERUSER
+
+ruben - ruben1234
+
