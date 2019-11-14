@@ -8,7 +8,10 @@ application.
 	* [Virtualenv](#virtualenv)
 	* [Requirements](#requirements)
 * [How To Launch It](#how-to-launch-it)
+<<<<<<< HEAD
 * [Important web pages](#important-web-pages)
+=======
+>>>>>>> 9016478e8cddda4145a69707c989261e2a21e59a
 
 ## Installation guide <a name="installation-guide"></a>
 This guide will show you how to install all the necessary data to run this project.
@@ -33,6 +36,7 @@ pip install -r requirements.txt
 
 To launch it simply run:  
 
+<<<<<<< HEAD
 python manage.py runserver
 
 ## Important web pages <a name="important-web-pages"></a>
@@ -51,3 +55,6 @@ http://127.0.0.1:8000/admin/
 Home web page:   
 
 http://127.0.0.1:8000/home/ 
+=======
+python manage.py runserver
+>>>>>>> 9016478e8cddda4145a69707c989261e2a21e59a
