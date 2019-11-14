@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<title>Create Partner</title>
+
+<p>Please fill the next form:</p>
+<form action='.' method="POST" class="myForm"> {% csrf_token %}
+    <fieldset>
+        <legend>Personal information:</legend>
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </fieldset>
+</form>
+<style>
+    .myForm {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        font-size: 0.8em;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    .myForm * {
+        box-sizing: border-box;
+    }
+</style>
+{% endblock content %}
