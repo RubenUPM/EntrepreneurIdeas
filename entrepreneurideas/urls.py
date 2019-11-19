@@ -60,6 +60,7 @@ urlpatterns = [
     # Authorization section (login)
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/login/', TemplateView.as_view(template_name='login.html'), name='loginView'),
+    path('accounts/logout/', TemplateView.as_view(template_name='logged_out.html'), name='logoutView'),
     # path('loginSuccess/', TemplateView.as_view(template_name='loginsuccess.html'), name='loginSuccessView'),
     # URLs provided by "auth":
     #     accounts/login/ [name='login']

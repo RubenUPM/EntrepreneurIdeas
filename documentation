@@ -4,6 +4,8 @@
 python manage.py runserver
 
 # DATABASE
+# To create new components in the system.
+python manage.py startapp component_name
 
 python manage.py migrate
 

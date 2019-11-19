@@ -6,21 +6,37 @@
 {% url 'home' as home_url %}
 
 <title>Post Idea</title>
-<p>Please fill the next form to share your idea:</p>
+<p>Please fill the next form to share your idea!!:</p>
 <form action='{{ home_url }}' method="GET" class="myForm">
     {% csrf_token %}
     <fieldset>
         <legend>Idea Information:</legend>
+
         Title: <br>
         <input type="text" name="usrname"><br><br>
+
         Price: <br>
         <input type="text" name="price"><br><br>
+
+        Category: <br>
+        <select name="Category">
+            <option value="Technology">Technology</option>
+            <option value="Videogames">Videogames</option>
+            <option value="Travels">Travels</option>
+            <option value="Food">Food</option>
+        </select><br><br>
+
         Description: <br>
         <textarea rows="4" cols="50" name="comment" form="usrform"> </textarea><br><br>
-        <input type="submit" value="Post Idea">
+
+        Date: <br>
+        <input type="date" id="start" name="trip-start"
+               value="2019-11-19" min="2019-11-10" max="2022-12-31"><br><br>
+
+        <input type="submit" value="Post Idea"> <br>
     </fieldset>
 </form>
-<!--
+
 <style>
     .myForm {
         font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -35,13 +51,12 @@
     }
 </style>
 
+<!--
 <div class='row'>
     <div class='col'>
         <p>{{ content }}</p>
         <h1>Fill Idea</h1>
     </div>
 </div> -->
-
-
 
 {% endblock content %}
