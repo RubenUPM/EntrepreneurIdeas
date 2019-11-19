@@ -5,16 +5,27 @@
 <title>Login</title>
 
 <p>Please fill the next form:</p>
-<form action='{{ loginSuccessView_url }}' method="GET" class="myForm"> {% csrf_token %}
-    <fieldset>
-        <legend>Credentials:</legend>
-        Email:<br>
-        <input type="text" name="email"><br>
-        Password:<br>
-        <input type="text" name="password"><br><br>
-        <input type="submit" value="Submit">
-    </fieldset>
+<fieldset>
+
+<form  method="POST" class="myForm" action="{% url 'login' %}">
+    {% csrf_token %}
+    <legend>Credentials:</legend>
+        <div>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </div>
+
+        <div>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </div>
+
+        <div>
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
 </form>
+</fieldset>
 
 <style>
     .myForm {

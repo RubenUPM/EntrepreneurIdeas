@@ -14,7 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 from pages.views import home_view, test_view, about_view, contact_view
 from entrusers.views import entr_users_detail_view, entr_users_create_view
@@ -22,6 +24,10 @@ from partusers.views import partner_users_create_view, partner_users_detail_view
 from django.views.generic import TemplateView
 
 urlpatterns = [
+    # Admin section:
+    path('admin/', admin.site.urls),
+
+    # Home section
     path('', home_view, name='home'),
     # path('home/', home_view, name='home'),
     # path('home/', TemplateView.as_view(template_name='bootstrap/example.html'), name='home'),
@@ -32,9 +38,9 @@ urlpatterns = [
     # Home section URL
     path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
 
-    # Login functionality URLS:
-    path('login/', TemplateView.as_view(template_name='login.html'), name='loginView'),
-    path('loginSuccess/', TemplateView.as_view(template_name='loginsuccess.html'), name='loginSuccessView'),
+    # Login functionality URLS (Login functionality is provided by django.authentication):
+    # path('login/', TemplateView.as_view(template_name='login.html'), name='loginView'),
+    # path('loginSuccess/', TemplateView.as_view(template_name='loginsuccess.html'), name='loginSuccessView'),
 
     # Contact section URLS:
     path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
@@ -51,6 +57,23 @@ urlpatterns = [
     path('partusers/', partner_users_detail_view, name='partusersdetailview'),
     path('createpartuser/', partner_users_create_view, name='partuserscreateview'),
 
-    # Admin section:
-    path('admin/', admin.site.urls),
-]
+    # Authorization section (login)
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/login/', TemplateView.as_view(template_name='login.html'), name='loginView'),
+    # path('loginSuccess/', TemplateView.as_view(template_name='loginsuccess.html'), name='loginSuccessView'),
+    # URLs provided by "auth":
+    #     accounts/login/ [name='login']
+    #     accounts/logout/ [name='logout']
+    #     accounts/password_change/ [name='password_change']
+    #     accounts/password_change/done/ [name='password_change_done']
+    #     accounts/password_reset/ [name='password_reset']
+    #     accounts/password_reset/done/ [name='password_reset_done']
+    #     accounts/reset/<uidb64>/<token>/ [name='password_reset_confirm']
+    #     accounts/reset/done/ [name='password_reset_complete']
+    # HAMMER TIME:
+                  # What is this :
+                  # static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) ?
+
+    # Ideas section
+    path('ideas/', TemplateView.as_view(template_name='fillIdea.html'), name='ideaFormView'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load staticfiles %}
 {% block content %}
+
 <title>Home Template</title>
 
 <div class='row'>
     <div class='col'>
-        <img src="{% static 'img/beach.jpg' %}" class='img-fluid' />
+        <!-- <img src="{% static 'img/beach.jpg' %}" class='img-fluid' /> -->
         <p>{{ content }}</p>
     </div>
 </div>
@@ -14,6 +16,8 @@
     <h1>{{ title }}</h1>
     <h1>A lot of ideas will be here :).</h1>
 </div>
+
+
 <!--
 {% if request.user.is_authenticated %}
 <div class='row'>
