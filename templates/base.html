@@ -2,33 +2,34 @@
 {% load staticfiles %}
 
     <html lang="en">
-    <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <head>
+          <!-- Required meta tags -->
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        {% include 'base/css.html' %}
-        {% block base_head %}
-            <!-- <img src="{% static 'IMG/img.jpg' %}" height="100%" width="100%"> -->
-            <!-- <div style="background-image: url{% static 'IMG/img.jpg' %};"></div> -->
-        {% endblock %}
-    </head>
-    <!-- TODO: THIS SHOULD BE MOVED TO CSS PART.  -->
-    <style>
-        body {
-          background-image: url('{% static 'IMG/img.jpg' %}');
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: cover;
-        }
-    </style>
+            {% include 'base/css.html' %}
+            {% block base_head %}
+                <!-- <img src="{% static 'IMG/img.jpg' %}" height="100%" width="100%"> -->
+                <!-- <div style="background-image: url{% static 'IMG/img.jpg' %};"></div> -->
+            {% endblock %}
+        </head>
+        <!-- TODO: THIS SHOULD BE MOVED TO CSS PART.  -->
+        <style>
+            body {
+              background-image: url('{% static 'IMG/img.jpg' %}');
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: cover;
+            }
+        </style>
 
-    <body>
-      {% include 'base/navbar.html' with brand_name='Entrepreneur Ideas' %}
-      <div class='container'>
-          {% block content %}
-            <!-- <h1>TEST IMG BASE HTML</h1> -->
-          {% endblock %}
-      </div>
-      {% include 'base/js.html' %}
-    </body>
+        <body>
+          {% include 'base/navbar.html' with brand_name='Entrepreneur Ideas' %}
+          <div class='container'>
+              {% block content %}
+                <!-- <h1>TEST IMG BASE HTML</h1> -->
+              {% endblock %}
+          </div>
+          {% include 'base/js.html' %}
+        </body>
+    </html>
