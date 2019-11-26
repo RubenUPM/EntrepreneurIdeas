@@ -51,11 +51,15 @@ urlpatterns = [
 
     # Entrepreneur Users section URLS:
     path('entrusers/', entr_users_detail_view, name='entrusersdetailview'),
-    path('createentruser/', entr_users_create_view, name='entruserscreateview'),
+    path('createentruser/', TemplateView.as_view(template_name='createEntrepreneurUserMOCK.html'), name='entruserscreateview'),
+    # TODO: Previous Implementation. This implementation store an user on database.
+    # path('createentruser/', entr_users_create_view, name='entruserscreateview'),
 
     # Partner Users section URLS:
     path('partusers/', partner_users_detail_view, name='partusersdetailview'),
-    path('createpartuser/', partner_users_create_view, name='partuserscreateview'),
+    path('createpartuser/', TemplateView.as_view(template_name='createPartnerUserMOCK.html'), name='partuserscreateview'),
+    # TODO: Previous Implementation. This implementation store an user on database.
+    # path('createpartuser/', partner_users_create_view, name='partuserscreateview'),
 
     # Authorization section (login)
     path('accounts/', include('django.contrib.auth.urls')),
