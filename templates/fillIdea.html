@@ -10,30 +10,45 @@
 <form action='{{ home_url }}' method="GET" class="myForm">
     {% csrf_token %}
     <fieldset>
-        <legend>Idea Information:</legend>
+        <div class="card">
 
-        Title: <br>
-        <input type="text" name="usrname"><br><br>
+            <h5 class="card-header">Idea Information</h5>
 
-        Price: <br>
-        <input type="text" name="price"><br><br>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input name="usrname" type="text" class="form-control" placeholder="Insert Title">
+                </div>
 
-        Category: <br>
-        <select name="Category">
-            <option value="Technology">Technology</option>
-            <option value="Videogames">Videogames</option>
-            <option value="Travels">Travels</option>
-            <option value="Food">Food</option>
-        </select><br><br>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input name="usrname" type="number" class="form-control" placeholder="Insert Price">
+                </div>
 
-        Description: <br>
-        <textarea rows="4" cols="50" name="comment" form="usrform"> </textarea><br><br>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="Category" class="form-control">
+                        <option value="Technology">Technology</option>
+                        <option value="Videogames">Videogames</option>
+                        <option value="Travels">Travels</option>
+                        <option value="Food">Food</option>
+                    </select>
+                </div>
 
-        Date: <br>
-        <input type="date" id="start" name="trip-start"
-               value="2019-11-19" min="2019-11-10" max="2022-12-31"><br><br>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" ows="4" cols="50" name="comment" form="usrform"></textarea>
+                </div>
 
-        <input type="submit" value="Post Idea"> <br>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" name="trip-start" value="2019-11-19" min="2019-11-10" max="2022-12-31" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary float-right">Post Idea</button>
+            </div>
+        </div>
+
     </fieldset>
 </form>
 
