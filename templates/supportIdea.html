@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block content %}
+
+{% url 'contact' as contact_url %}
+
+<title>Support Idea Success</title>
+
+<div class='row'>
+    <div class='col'>
+        <p>{{ content }}</p>
+    </div>
+</div>
+
+<h1> Thanks for supporting ours ideas!!</h1>
+<p>
+    We hope this system has been easy to use.<br>
+    Thanks again!!
+</p>
+{% endblock %}

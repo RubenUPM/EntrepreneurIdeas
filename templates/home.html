@@ -3,29 +3,79 @@
 {% load staticfiles %}
 {% block content %}
 
+{% url 'contact' as contact_url %}
+{% url 'idea1View' as idea1_url %}
+{% url 'idea2View' as idea2_url %}
+
 <title>Home Template</title>
 
 <div class='row'>
     <div class='col'>
-        <!-- <img src="{% static 'img/beach.jpg' %}" class='img-fluid' /> -->
         <p>{{ content }}</p>
     </div>
 </div>
 
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+#customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+#customers tr:nth-child(even){
+        background-color: #f2f2f2;}
+
+#customers tr:hover {
+        background-color: #ddd;}
+
+#customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+</style>
+
 <div class='text-center'>
     <h1>{{ title }}</h1>
-    <h1>A lot of ideas will be here :).</h1>
+    <h1>IDEAS</h1>
+
+    <table id="customers">
+        <tr>
+            <th>Title</th>
+            <th>Brief Description</th>
+            <th>See Detail Button</th>
+        </tr>
+        <tr>
+            <td>Travel to China</td>
+            <td>I will travel to China in summer.</td>
+            <td><input type="button" value="See details" onclick="location.href = {% url 'idea1View' %}"></td>
+        </tr>
+
+        <tr>
+            <td>Travel to Japan</td>
+            <td>I will travel to Japan in winter.</td>
+            <td><input type="button" value="See details" onclick="location.href = {% url 'idea2View' %}"></td>
+        </tr>
+
+    </table>
+
 </div>
 
-
-<!--
-{% if request.user.is_authenticated %}
-<div class='row'>
-  <div class='col'>
-  <h1>Premium</h1>
-  {{ premium_content }}
-  </div>
-</div>
-{% endif %}
--->
 {% endblock %}

@@ -81,4 +81,7 @@ urlpatterns = [
 
     # Ideas section
     path('ideas/', TemplateView.as_view(template_name='fillIdea.html'), name='ideaFormView'),
+    path('idea1/', TemplateView.as_view(template_name='idea1.html'), name='idea1View'),
+    path('idea2/', TemplateView.as_view(template_name='idea2.html'), name='idea2View'),
+    path('supportIdea/', TemplateView.as_view(template_name='supportIdea.html'), name='supportIdeaView'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
