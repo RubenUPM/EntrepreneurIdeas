@@ -6,6 +6,7 @@
 {% url 'contact' as contact_url %}
 {% url 'idea1View' as idea1_url %}
 {% url 'idea2View' as idea2_url %}
+{% url 'idea3View' as idea3_url %}
 
 <title>Home Template</title>
 
@@ -60,18 +61,28 @@
             <tr>
                 <th>Title</th>
                 <th>Brief Description</th>
+                <th>Price</th>
                 <th>See Detail Button</th>
             </tr>
             <tr>
                 <td>Travel to China</td>
                 <td>I will travel to China in summer.</td>
+                <td>1250€</td>
                 <td><input type="button" value="See details" onclick="location.href = {% url 'idea1View' %}"></td>
             </tr>
 
             <tr>
                 <td>Travel to Japan</td>
                 <td>I will travel to Japan in winter.</td>
+                <td>1500€</td>
                 <td><input type="button" value="See details" onclick="location.href = {% url 'idea2View' %}"></td>
+            </tr>
+
+            <tr>
+                <td>New Mobile</td>
+                <td>Im developing a new Mobile phone .</td>
+                <td>5000€</td>
+                <td><input type="button" value="See details" onclick="location.href = {% url 'idea3View' %}"></td>
             </tr>
 
         </table>
