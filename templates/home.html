@@ -49,33 +49,38 @@
         background-color: #4CAF50;
         color: white;
     }
-
 </style>
 
-<div class='text-center'>
-    <h1>{{ title }}</h1>
-    <h1>IDEAS</h1>
+{% if request.user.is_authenticated %}
+    <div class='text-center'>
+        <h1>{{ title }}</h1>
+        <h1>IDEAS</h1>
 
-    <table id="customers">
-        <tr>
-            <th>Title</th>
-            <th>Brief Description</th>
-            <th>See Detail Button</th>
-        </tr>
-        <tr>
-            <td>Travel to China</td>
-            <td>I will travel to China in summer.</td>
-            <td><input type="button" value="See details" onclick="location.href = {% url 'idea1View' %}"></td>
-        </tr>
+        <table id="customers">
+            <tr>
+                <th>Title</th>
+                <th>Brief Description</th>
+                <th>See Detail Button</th>
+            </tr>
+            <tr>
+                <td>Travel to China</td>
+                <td>I will travel to China in summer.</td>
+                <td><input type="button" value="See details" onclick="location.href = {% url 'idea1View' %}"></td>
+            </tr>
 
-        <tr>
-            <td>Travel to Japan</td>
-            <td>I will travel to Japan in winter.</td>
-            <td><input type="button" value="See details" onclick="location.href = {% url 'idea2View' %}"></td>
-        </tr>
+            <tr>
+                <td>Travel to Japan</td>
+                <td>I will travel to Japan in winter.</td>
+                <td><input type="button" value="See details" onclick="location.href = {% url 'idea2View' %}"></td>
+            </tr>
 
-    </table>
+        </table>
+    </div>
+{% else %}
 
-</div>
+    <h1>Please log in to see ideas.</h1>
+
+{% endif %}
+
 
 {% endblock %}
